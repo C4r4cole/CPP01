@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:33:28 by fmoulin           #+#    #+#             */
-/*   Updated: 2026/01/14 17:28:47 by fmoulin          ###   ########.fr       */
+/*   Updated: 2026/01/15 11:28:48 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanB
 {
 private:
 	std::string	_name;
-	Weapon*		_type;
+	Weapon*		_weapon;
 public:
 	HumanB(std::string name);
 	~HumanB();

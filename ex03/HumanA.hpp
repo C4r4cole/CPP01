@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:33:35 by fmoulin           #+#    #+#             */
-/*   Updated: 2026/01/14 17:04:20 by fmoulin          ###   ########.fr       */
+/*   Updated: 2026/01/15 11:27:55 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanA
 {
 private:
 	std::string	_name;
-	Weapon&		_type;
+	Weapon&		_weapon;
 public:
 	HumanA(std::string name, Weapon& type);
 	~HumanA();
