@@ -6,7 +6,7 @@
 /*   By: fmoulin <fmoulin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:02:06 by fmoulin           #+#    #+#             */
-/*   Updated: 2026/01/15 17:40:06 by fmoulin          ###   ########.fr       */
+/*   Updated: 2026/01/16 11:19:07 by fmoulin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 	std::string		line;
 	std::string		resultLine;
 	size_t			pos;
+	size_t			found;
 	
 	if (!ifs)
 	{
@@ -42,16 +43,26 @@ int main(int argc, char **argv)
 		std::cerr << "Cannot open output file\n";
 		return (1);
 	}
-	if (s1 == "")
+	if (s1.empty())
+	{
+		std::cerr << "s1 cannot be empty\n";
 		return (1);
+	}
 	while (std::getline(ifs, line))
 	{
 		// fonction pour remplacer s1 par s2
 		pos = 0;
-		resultLine = "";
-		line.find(s1, pos);
-		
-		ofs << line << "\n";
+		while(true)
+		{
+			found = line.find(s1, pos);
+			if (found == std::string::npos)
+				break ;
+			resultLine += line.substr(pos, found - pos);
+			resultLine += s2;
+			pos = found + s1.length();
+		}
+		resultLine += line.substr(pos);
+		ofs << resultLine << "\n";
 	}
 	ifs.close();
 	ofs.close();
